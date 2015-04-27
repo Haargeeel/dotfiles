@@ -56,6 +56,8 @@ nmap <S-h> <C-w>W
 nmap <S-l> <C-w>w
 nmap <leader>n :NERDTree<RETURN>
 nmap <leader>g :e#<RETURN>
+nmap <leader>vs :vsplit<RETURN>
+nmap <leader>y :%y<RETURN>
 "nmap <up> 50kzz
 "nmap <down> 50jzz
 imap <leader>' ''<ESC>i
@@ -63,7 +65,7 @@ imap <leader>" ""<ESC>i
 imap <leader>( ()<ESC>i
 imap <leader>[ []<ESC>i
 imap <leader>{ {}<ESC>i
-imap <leader>c console.log('')<ESC>hi
+imap <leader>c console.log()<ESC>i
 " super nervige shift k stoppen - BEST MAPPING EVER!
 map <S-k> <Nop>
 

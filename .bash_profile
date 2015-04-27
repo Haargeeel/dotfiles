@@ -8,6 +8,7 @@ alias ..='cd ..'
 alias v='vim'
 alias ip='curl ipv4.icanhazip.com'
 
+alias hv='cd ~/Documents/Development/hv3'
 alias now='cd ~/Documents/Development/Now'
 alias versus='cd ~/Documents/Development/versus/versus-android'
 alias server='ssh ray@134.255.239.58'
