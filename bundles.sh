@@ -1,8 +1,6 @@
 #!/bin/bash
 
-USER_HOME=$(eval echo ~${SUDO_USER})
-
-DIR=${USER_HOME}"/.vim/bundle/"
+DIR="${HOME}/.vim/bundle/"
 cd ~/.vim/bundle
 
 if [ ! -d ${DIR}"ctrlp.vim/" ]; then
