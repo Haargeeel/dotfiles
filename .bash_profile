@@ -7,6 +7,7 @@ alias l='ls -F'
 alias ..='cd ..'
 alias v='vim'
 alias ip='curl ipv4.icanhazip.com'
+alias ipp='ifconfig | grep ".*inet.*netmask.*broadcast"'
 
 alias hv='cd ~/Documents/Development/hv3'
 alias now='cd ~/Documents/Development/Now'
@@ -14,8 +15,11 @@ alias versus='cd ~/Documents/Development/versus/versus-android'
 alias server='ssh ray@134.255.239.58'
 alias dev='cd ~/Documents/Development'
 alias fed='cd ~/Documents/Development/fedex-node'
+alias goversus='~/Documents/Development/start-script'
+alias endversus='~/Documents/Development/stop-script'
 alias slite='cd ~/AndroidStudioProjects/SliteAlarm'
 alias mvim='open -a macvim'
+alias mac-wlan='ssh ray@192.168.178.21'
 alias mac='ssh ray@192.168.178.23'
 export PATH=/usr/local/sbin:$PATH
 #export CLICOLOR=1
@@ -26,6 +30,7 @@ alias ga='git add'
 alias gc='git commit'
 alias gcm='git commit -m '
 alias gs='git status'
+alias gd='git diff'
 alias gco='git checkout'
 alias gp='git pull'
 alias gpu='git push'
@@ -34,3 +39,4 @@ alias gb='git for-each-ref --sort=-committerdate refs/heads/'
 alias real='cd ~/uni/realtime/uebung/ue1/rtr-template'
 
 test -f ~/.git-completion.bash && . $_
+ulimit -n 1024

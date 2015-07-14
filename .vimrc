@@ -66,6 +66,7 @@ imap <leader>( ()<ESC>i
 imap <leader>[ []<ESC>i
 imap <leader>{ {}<ESC>i
 imap <leader>c console.log()<ESC>i
+imap <leader>fun function()<SPACE>{<RETURN><RETURN>}<ESC>kk$hhi
 " super nervige shift k stoppen - BEST MAPPING EVER!
 map <S-k> <Nop>
 
@@ -79,17 +80,16 @@ set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
 " Latex break in case of emergency
-" let g:LatexBox_latexmk_async=1
-" let g:LatexBox_latexmk_preview_continuously=1
-" let g:LatexBox_viewer = "open -a Skim"
-" let g:LatexBox_latexmk_options = "-pvc"
-" let g:LatexBox_quickfix=2
-" let g:LatexBox_quickfix=3
-" imap <leader>e \emph{}<ESC>i
-" imap <leader>t {\ttfamily }<ESC>i
-" nmap <leader>m <ESC>:LatexTOCToggle<RETURN>
-" imap <leader>m <ESC>:LatexTOCToggle<RETURN>
+"let g:LatexBox_latexmk_async=1
+"let g:LatexBox_latexmk_preview_continuously=1
+"let g:LatexBox_viewer = "open -a Skim"
+"let g:LatexBox_latexmk_options = "-pvc"
+"let g:LatexBox_quickfix=2
+"let g:LatexBox_quickfix=3
+"imap <leader>e \emph{}<ESC>i
+"imap <leader>t {\ttfamily }<ESC>i
+"nmap <leader>m <ESC>:LatexTOCToggle<RETURN>
+"imap <leader>m <ESC>:LatexTOCToggle<RETURN>
 
 " setup pathogen to manage your plugins
 call pathogen#infect()
-
