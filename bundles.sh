@@ -1,7 +1,23 @@
 #!/bin/bash
 
+green='\033[0;32m'
+red='\033[0;31m'
+NC='\033[0m'
+
+PATH=`pwd -P`
+
+echo "check if there is any .vim directory"
+if [ ! -d "$HOME/.vim" ]; then
+  echo "${red}no directory found. Better create one${NC}"
+  cp -r $PATH/.vim $HOME/
+else
+  echo "${green}found one. Continue working here.${NC}"
+fi
+
 DIR="${HOME}/.vim/bundle/"
 cd ~/.vim/bundle
+
+echo "check all the git bundles"
 
 if [ ! -d ${DIR}"ctrlp.vim/" ]; then
   echo "install control-p"
@@ -58,3 +74,4 @@ if [ ! -d ${DIR}"LaTeX-Box/" ]; then
   git clone git@github.com:LaTeX-Box-Team/LaTeX-Box.git
 fi
 
+echo "${green}all done${NC}"
