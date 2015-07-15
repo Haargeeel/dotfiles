@@ -8,10 +8,10 @@ PATH=`pwd -P`
 
 echo "check if there is any .vim directory"
 if [ ! -d "$HOME/.vim" ]; then
-  echo "${red}no directory found. Better create one${NC}"
+  echo -e "${red}no directory found. Better create one${NC}"
   cp -r $PATH/.vim $HOME/
 else
-  echo "${green}found one. Continue working here.${NC}"
+  echo -e "${green}found one. Continue working here.${NC}"
 fi
 
 DIR="${HOME}/.vim/bundle/"
@@ -74,4 +74,4 @@ if [ ! -d ${DIR}"LaTeX-Box/" ]; then
   git clone git@github.com:LaTeX-Box-Team/LaTeX-Box.git
 fi
 
-echo "${green}all done${NC}"
+echo -e "${green}all done${NC}"
