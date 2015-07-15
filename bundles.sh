@@ -4,12 +4,13 @@ green='\033[0;32m'
 red='\033[0;31m'
 NC='\033[0m'
 
-PATH=`pwd -P`
+#CP == current path
+CP=`pwd -P`
 
 echo "check if there is any .vim directory"
 if [ ! -d "$HOME/.vim" ]; then
   echo -e "${red}no directory found. Better create one${NC}"
-  cp -r $PATH/.vim $HOME/
+  cp -r $CP/.vim $HOME/
 else
   echo -e "${green}found one. Continue working here.${NC}"
 fi
