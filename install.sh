@@ -12,7 +12,9 @@ if [ -L "$HOME/.vimrc" ];then
   echo -e "${green}already a link. Nothing to do here.${NC}"
 else
   echo -e "${blue}not a link. Deleting file and creating link.${NC}"
-  rm $HOME/.vimrc
+  if [ ! -f "$HOME/.vimrc" ];then
+    rm $HOME/.vimrc
+  fi
   ln -s $CP/.vimrc $HOME/.vimrc
 fi
 
@@ -21,7 +23,9 @@ if [ -L "$HOME/.bash_profile" ];then
   echo -e "${green}already a link. Nothing to do here.${NC}"
 else
   echo -e "${blue}not a link. Deleting file and creating link.${NC}"
-  rm $HOME/.bash_profile
+  if [ ! -f "$HOME/.bash_profile" ];then
+    rm $HOME/.bash_profile
+  fi
   ln -s $CP/.bash_profile $HOME/.bash_profile
 fi
 
@@ -30,7 +34,9 @@ if [ -L "$HOME/.inputrc" ];then
   echo -e "${green}already a link. Nothing to do here.${NC}"
 else
   echo -e "${blue}not a link. Deleting file and creating link.${NC}"
-  rm $HOME/.inputrc
+  if [ ! -f "$HOME/.inputrc" ];then
+    rm $HOME/.inputrc
+  fi
   ln -s $CP/.inputrc $HOME/.inputrc
 fi
 
