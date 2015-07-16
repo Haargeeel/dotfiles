@@ -40,3 +40,5 @@ alias real='cd ~/uni/realtime/uebung/ue1/rtr-template'
 
 test -f ~/.git-completion.bash && . $_
 ulimit -n 1024
+
+cowsay 'Hey Ray'
