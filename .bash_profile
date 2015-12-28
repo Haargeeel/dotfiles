@@ -1,4 +1,3 @@
-
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder'
 alias la='ls -a'
@@ -17,6 +16,9 @@ alias dev='cd ~/Documents/Development'
 alias fed='cd ~/Documents/Development/fedex-node'
 alias goversus='~/Documents/Development/start-script'
 alias endversus='~/Documents/Development/stop-script'
+alias goiot='~/Documents/Development/start-iot'
+alias iot='cd ~/Documents/Development/Masterprojekt-WS15-16-MMI-IoT/iot-frontend'
+alias mmi='cd ~/Documents/Development/Masterprojekt-WS15-16-MMI-IoT/iot-infrastructure'
 alias slite='cd ~/AndroidStudioProjects/SliteAlarm'
 alias mvim='open -a macvim'
 alias mac-wlan='ssh ray@192.168.178.21'
@@ -39,4 +41,16 @@ alias gb='git for-each-ref --sort=-committerdate refs/heads/'
 alias real='cd ~/uni/realtime/uebung/ue1/rtr-template'
 
 test -f ~/.git-completion.bash && . $_
-ulimit -n 1024
+ulimit -n 4096
+
+##
+# Your previous /Users/ray/.bash_profile file was backed up as /Users/ray/.bash_profile.macports-saved_2015-10-28_at_13:16:01
+##
+
+# MacPorts Installer addition on 2015-10-28_at_13:16:01: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+
+export NVM_DIR="/Users/ray/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

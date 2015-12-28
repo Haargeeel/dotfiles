@@ -31,6 +31,9 @@ set hlsearch
 set incsearch
 set ic
 
+" jsx (react) stuff
+let g:jsx_ext_required = 0
+
 " set up control p
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|build'
