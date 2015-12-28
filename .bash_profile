@@ -54,3 +54,5 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
 export NVM_DIR="/Users/ray/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+cowsay 'Hey Ray'
