@@ -2,11 +2,14 @@ alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall 
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder'
 alias la='ls -a'
 alias ll='ls -lh'
-alias l='ls -F'
+alias ls='ls -GFh'
+alias l='ls'
 alias ..='cd ..'
 alias v='vim'
 alias ip='curl ipv4.icanhazip.com'
 alias ipp='ifconfig | grep ".*inet.*netmask.*broadcast"'
+alias send='~/Documents/Development/fun_scripts/send.sh'
+alias rep='cd ~/Documents/Development/report_architecture/reports'
 
 alias hv='cd ~/Documents/Development/hv3'
 alias now='cd ~/Documents/Development/Now'
@@ -20,9 +23,10 @@ alias goiot='~/Documents/Development/start-iot'
 alias iot='cd ~/Documents/Development/Masterprojekt-WS15-16-MMI-IoT/iot-frontend'
 alias mmi='cd ~/Documents/Development/Masterprojekt-WS15-16-MMI-IoT/iot-infrastructure'
 alias slite='cd ~/AndroidStudioProjects/SliteAlarm'
-alias mvim='open -a macvim'
+#alias mvim='open -a macvim'
 alias mac-wlan='ssh ray@192.168.178.21'
-alias mac='ssh ray@192.168.178.23'
+alias mac='ssh ray@192.168.178.30'
+alias funarea='cd /Users/ray/Documents/Development/fun_scripts'
 export PATH=/usr/local/sbin:$PATH
 #export CLICOLOR=1
 #export LSCOLORS=ExFxBxDxCxegedabagacad
@@ -40,6 +44,10 @@ alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %
 alias gb='git for-each-ref --sort=-committerdate refs/heads/'
 alias real='cd ~/uni/realtime/uebung/ue1/rtr-template'
 
+alias drmi="~/Documents/Development/fun_scripts/docker_remove_stuff.sh rmi"
+alias drmc="~/Documents/Development/fun_scripts/docker_remove_stuff.sh rmc"
+alias dsc="~/Documents/Development/fun_scripts/docker_remove_stuff.sh stopc"
+
 test -f ~/.git-completion.bash && . $_
 ulimit -n 4096
 
@@ -51,8 +59,7 @@ ulimit -n 4096
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-export NVM_DIR="/Users/ray/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
+export EDITOR="/usr/bin/vim"
 cowsay 'Hey Ray'

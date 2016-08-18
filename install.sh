@@ -71,11 +71,6 @@ if [ ! -d ${DIR}"nerdtree/" ]; then
   git clone git@github.com:scrooloose/nerdtree.git
 fi
 
-if [ ! -d ${DIR}"supertab/" ]; then
-  echo "install supertab"
-  git clone git@github.com:ervandew/supertab.git
-fi
-
 if [ ! -d ${DIR}"vim-colors-solarized/" ]; then
   echo "install solarized colors"
   git clone git@github.com:altercation/vim-colors-solarized.git
@@ -101,9 +96,29 @@ if [ ! -d ${DIR}"vim-stylus/" ]; then
   git clone git@github.com:wavded/vim-stylus.git
 fi
 
-if [ ! -d ${DIR}"LaTeX-Box/" ]; then
-  echo "install latex box"
-  git clone git@github.com:LaTeX-Box-Team/LaTeX-Box.git
+if [ ! -d ${DIR}"tlib_vim/" ]; then
+  echo "install tlib for snipmate"
+  git clone https://github.com/tomtom/tlib_vim.git
+fi
+
+if [ ! -d ${DIR}"vim-addon-mw-utils/" ]; then
+  echo "install vim-addon-mw-utils for snipmate"
+  git clone https://github.com/MarcWeber/vim-addon-mw-utils.git
+fi
+
+if [ ! -d ${DIR}"vim-snippets/" ]; then
+  echo "install vim-snippets for snipmate"
+  git clone https://github.com/honza/vim-snippets.git
+fi
+
+if [ ! -d ${DIR}"vim-snipmate/" ]; then
+  echo "install snipmate finally"
+  git clone https://github.com/garbas/vim-snipmate.git
+fi
+
+if [ ! -d ${DIR}"syntastic/" ]; then
+  echo "install syntastic"
+  git clone --depth=1 https://github.com/scrooloose/syntastic.git
 fi
 
 echo -e "${green}all done${NC}"

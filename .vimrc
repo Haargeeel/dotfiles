@@ -31,6 +31,20 @@ set hlsearch
 set incsearch
 set ic
 
+" nerdcommenter
+let g:NERDSpaceDelims = 1
+
+" syntastic stuff
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['standard']
+
 " jsx (react) stuff
 let g:jsx_ext_required = 0
 
@@ -61,17 +75,21 @@ nmap <leader>n :NERDTree<RETURN>
 nmap <leader>g :e#<RETURN>
 nmap <leader>vs :vsplit<RETURN>
 nmap <leader>y :%y<RETURN>
-"nmap <up> 50kzz
-"nmap <down> 50jzz
-imap <leader>' ''<ESC>i
-imap <leader>" ""<ESC>i
-imap <leader>( ()<ESC>i
-imap <leader>[ []<ESC>i
-imap <leader>{ {}<ESC>i
+    "nmap <up> 50kzz
+    "nmap <down> 50jzz
+    "imap <leader>' ''<ESC>i
+    "imap <leader>" ""<ESC>i
+    "imap <leader>( ()<ESC>i
+    "imap <leader>[ []<ESC>i
+    "imap <leader>{ {}<ESC>i
 imap <leader>c console.log()<ESC>i
+imap <leader>P return new Promise((resolve, reject) => {<RETURN>})<ESC>O
 imap <leader>fun function()<SPACE>{<RETURN><RETURN>}<ESC>kk$hhi
 " super nervige shift k stoppen - BEST MAPPING EVER!
 map <S-k> <Nop>
+
+" insert normal tab when pressing shift tab
+inoremap <S-Tab> <C-V><Tab>
 
 " visual shifting (does not exit Visual Mode)
 vnoremap < <gv
