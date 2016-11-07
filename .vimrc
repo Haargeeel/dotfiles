@@ -6,8 +6,8 @@ set number
 autocmd VimEnter * if !argc() | NERDTree | endif
 autocmd VimEnter * wincmd p
 autocmd VimEnter * highlight LineNr ctermfg=grey
-"autocmd VimEnter * colorscheme beans
-"autocmd VimEnter * colorscheme github
+" autocmd VimEnter * colorscheme beans
+" autocmd VimEnter * colorscheme github
 
 " colorscheme
 set guifont=Menlo:h12
@@ -41,9 +41,9 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['standard']
+" let g:syntastic_javascript_checkers = ['standard']
 
 " jsx (react) stuff
 let g:jsx_ext_required = 0
@@ -62,31 +62,58 @@ else
   autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 endif
 
-" mapping
+" ***************************
+" **********mapping**********
+" ***************************
 let mapleader = ","
+
+" use jj instead of ESC
 imap jj <esc>
+
+" jump on the pane on the left
 nmap <left> <C-w>W
+
+" jump to the pane on the right
 nmap <right> <C-w>w
+
+" scroll 5 lines up
 nmap <up> 5<C-y>
+
+" scroll 5 lines down
 nmap <down> 5<C-e>
+
+" jump on the pane on the left
 nmap <S-h> <C-w>W
+
+" jump to the pane on the right
 nmap <S-l> <C-w>w
+
+" open nerdtree
 nmap <leader>n :NERDTree<RETURN>
+
+" open last open file from this pane
 nmap <leader>g :e#<RETURN>
+
+" open same file again in a second pane
 nmap <leader>vs :vsplit<RETURN>
+
+" yank whole file
 nmap <leader>y :%y<RETURN>
-    "nmap <up> 50kzz
-    "nmap <down> 50jzz
-    "imap <leader>' ''<ESC>i
-    "imap <leader>" ""<ESC>i
-    "imap <leader>( ()<ESC>i
-    "imap <leader>[ []<ESC>i
-    "imap <leader>{ {}<ESC>i
+
+" shortcut for console.log()
 imap <leader>c console.log()<ESC>i
-imap <leader>P return new Promise((resolve, reject) => {<RETURN>})<ESC>O
-imap <leader>fun function()<SPACE>{<RETURN><RETURN>}<ESC>kk$hhi
+
+" copy selected text into clipboard
+vmap <leader>p :w !pbcopy<RETURN><RETURN>
+
+" clear search highlighting
+nmap <leader>/ :noh<RETURN>
+
+" reverse shift j for comma seperated stuff
+nmap <S-k> f,a<RETURN><ESC>
+
 " super nervige shift k stoppen - BEST MAPPING EVER!
-map <S-k> <Nop>
+vmap <S-k> <Nop>
 
 " insert normal tab when pressing shift tab
 inoremap <S-Tab> <C-V><Tab>
@@ -94,6 +121,9 @@ inoremap <S-Tab> <C-V><Tab>
 " visual shifting (does not exit Visual Mode)
 vnoremap < <gv
 vnoremap > >gv
+
+" react automatically add bind on class functions
+nmap <leader>bind 0wvey/super(props)<RETURN>othis.<ESC>pa = this.<ESC>pa.bind(this)<ESC>,/
 
 " save swap files in a special directory
 set backupdir=~/.vim/backup//
