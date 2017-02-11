@@ -18,6 +18,8 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+set backspace=2
+
 " 80 lines
 set colorcolumn=80
 highlight ColorColumn ctermbg=red guibg=lightgrey
@@ -66,6 +68,9 @@ endif
 " **********mapping**********
 " ***************************
 let mapleader = ","
+
+" sudo save this file
+cnoremap sudow w !sudo tee % >/dev/null
 
 " use jj instead of ESC
 imap jj <esc>
@@ -130,17 +135,29 @@ set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
-" Latex break in case of emergency
-"let g:LatexBox_latexmk_async=1
-"let g:LatexBox_latexmk_preview_continuously=1
-"let g:LatexBox_viewer = "open -a Skim"
-"let g:LatexBox_latexmk_options = "-pvc"
-"let g:LatexBox_quickfix=2
-"let g:LatexBox_quickfix=3
-"imap <leader>e \emph{}<ESC>i
-"imap <leader>t {\ttfamily }<ESC>i
-"nmap <leader>m <ESC>:LatexTOCToggle<RETURN>
-"imap <leader>m <ESC>:LatexTOCToggle<RETURN>
+
+" Latex stuff
+" Goyo gives the page a clean style goyo.vim
+" limelight highlights the paragraph your cursor is on limelight.vim
+" LaTeX-Box does the heavy shit
+nmap <leader>master <ESC>:Goyo<RETURN>:Limelight<RETURN>:colorscheme solarized<RETURN>:Latexmk<RETURN>
+let g:LatexBox_split_type="new"
+let g:LatexBox_latexmk_async=1
+let g:LatexBox_latexmk_preview_continuously=1
+let g:LatexBox_viewer = "open -a Skim"
+let g:LatexBox_latexmk_options = "-pvc"
+let g:LatexBox_quickfix=0
+imap <leader>e \emph{}<ESC>i
+imap <leader>t {\ttfamily }<ESC>i
+nmap <leader>m <ESC>:LatexTOCToggle<RETURN>
+imap <leader>m <ESC>:LatexTOCToggle<RETURN>
+nmap <leader>ag :Goyo<RETURN>
+nmap <leader>al :Limelight<RETURN>
+nmap <leader>as :colorscheme solarized<RETURN>
+nmap <leader>am :Latexmk<RETURN>
+let g:syntastic_ignore_files=['\.tex$']
+let g:tq_enabled_backends=["woxikon_de"]
+let g:tq_language=['de']
 
 " setup pathogen to manage your plugins
 call pathogen#infect()

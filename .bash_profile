@@ -10,6 +10,8 @@ alias ip='curl ipv4.icanhazip.com'
 alias ipp='ifconfig | grep ".*inet.*netmask.*broadcast"'
 alias send='~/Documents/Development/fun_scripts/send.sh'
 alias rep='cd ~/Documents/Development/report_architecture/reports'
+alias dv='cd ~/Documents/Development/docker_versus'
+alias myfind='find . -type f -not -path "./node_modules/*" -not -path "./build/*" | xargs grep'
 
 alias hv='cd ~/Documents/Development/hv3'
 alias now='cd ~/Documents/Development/Now'
@@ -17,19 +19,20 @@ alias versus='cd ~/Documents/Development/versus/versus-android'
 alias server='ssh ray@134.255.239.58'
 alias dev='cd ~/Documents/Development'
 alias fed='cd ~/Documents/Development/fedex-node'
+alias cms='cd ~/Documents/Development/cms'
 alias goversus='~/Documents/Development/start-script'
 alias endversus='~/Documents/Development/stop-script'
-alias goiot='~/Documents/Development/start-iot'
-alias iot='cd ~/Documents/Development/Masterprojekt-WS15-16-MMI-IoT/iot-frontend'
-alias mmi='cd ~/Documents/Development/Masterprojekt-WS15-16-MMI-IoT/iot-infrastructure'
-alias slite='cd ~/AndroidStudioProjects/SliteAlarm'
+alias master='cd /Users/ray/Documents/Development/masterarbeit/cloudarchitecture'
 #alias mvim='open -a macvim'
-alias mac-wlan='ssh ray@192.168.178.21'
-alias mac='ssh ray@192.168.178.30'
+alias mac-wlan='ssh ray@wlan'
+alias mac='ssh ray@lan'
 alias funarea='cd /Users/ray/Documents/Development/fun_scripts'
+alias timer='/Users/ray/Documents/Development/fun_scripts/kill.sh'
 export PATH=/usr/local/sbin:$PATH
 #export CLICOLOR=1
 #export LSCOLORS=ExFxBxDxCxegedabagacad
+
+alias hn="while true; do echo \"====\" | rpipe 2; sleep 5; curl -s https://news.ycombinator.com | grep \"class='storylink'\" | sed 's/^.*storylink..//' | sed 's/^rel=.nofollow..//' | sed 's/\<\/a\>.*$//' | rpipe 2; sleep 60; done;"
 
 alias ga.='git add .;git status'
 alias ga='git add'
@@ -47,6 +50,25 @@ alias real='cd ~/uni/realtime/uebung/ue1/rtr-template'
 alias drmi="~/Documents/Development/fun_scripts/docker_remove_stuff.sh rmi"
 alias drmc="~/Documents/Development/fun_scripts/docker_remove_stuff.sh rmc"
 alias dsc="~/Documents/Development/fun_scripts/docker_remove_stuff.sh stopc"
+alias tmc="ssh -tt rasp 'bash tmuxcontrol.sh'"
+
+alias vimrc="vim ~/.vimrc"
+alias bashprofile="vim ~/.bash_profile"
+
+# versus aliases
+alias n1p="ssh nginx3.production"
+alias n2p="ssh nginx4.production"
+alias n1s="ssh nginx1.doc"
+alias f1p="ssh fedex1.production"
+alias f2p="ssh fedex2.production"
+alias f1s="ssh fedex1.doc"
+alias f2s="ssh fedex2.doc"
+alias m1p="ssh mongo1.production"
+alias m2p="ssh mongo2.production"
+alias m3p="ssh monitor.production"
+alias m1s="ssh mongo1.doc"
+alias m2s="ssh mongo2.doc"
+alias m3s="ssh monitor.doc"
 
 test -f ~/.git-completion.bash && . $_
 ulimit -n 4096
@@ -62,4 +84,14 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export EDITOR="/usr/bin/vim"
-cowsay 'Hey Ray'
+cowsay 'Jo Ray'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f /Users/ray/Documents/Development/gcloud/google-cloud-sdk/path.bash.inc ]; then
+  source '/Users/ray/Documents/Development/gcloud/google-cloud-sdk/path.bash.inc'
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f /Users/ray/Documents/Development/gcloud/google-cloud-sdk/completion.bash.inc ]; then
+  source '/Users/ray/Documents/Development/gcloud/google-cloud-sdk/completion.bash.inc'
+fi
