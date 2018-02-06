@@ -11,7 +11,10 @@ alias ipp='ifconfig | grep ".*inet.*netmask.*broadcast"'
 alias send='~/Documents/Development/fun_scripts/send.sh'
 alias rep='cd ~/Documents/Development/report_architecture/reports'
 alias dv='cd ~/Documents/Development/docker_versus'
-alias myfind='find . -type f -not -path "./node_modules/*" -not -path "./build/*" | xargs grep'
+# alias myfind='find . -type f -not -path "./node_modules/*" -not -path "./build/*" | xargs grep'
+alias myfind='fd --type f | xargs grep'
+alias weather='curl -4 http://wttr.in/Berlin'
+alias mkd='mkdir $1; cd $1'
 
 alias hv='cd ~/Documents/Development/hv3'
 alias now='cd ~/Documents/Development/Now'
@@ -28,11 +31,16 @@ alias mac-wlan='ssh ray@wlan'
 alias mac='ssh ray@lan'
 alias funarea='cd /Users/ray/Documents/Development/fun_scripts'
 alias timer='/Users/ray/Documents/Development/fun_scripts/kill.sh'
+
 export PATH=/usr/local/sbin:$PATH
+export GOPATH=/Users/ray/Documents/Development/go
+alias rayfit="cd /Users/ray/Documents/Development/go/src/github.com/haargeeel/rayfit"
 #export CLICOLOR=1
 #export LSCOLORS=ExFxBxDxCxegedabagacad
 
-alias hn="while true; do echo \"====\" | rpipe 2; sleep 5; curl -s https://news.ycombinator.com | grep \"class='storylink'\" | sed 's/^.*storylink..//' | sed 's/^rel=.nofollow..//' | sed 's/\<\/a\>.*$//' | rpipe 2; sleep 60; done;"
+alias gopath="cd $GOPATH"
+alias hnpi="while true; do echo \"====\" | rpipe 2; sleep 5; curl -s https://news.ycombinator.com | grep \"class='storylink'\" | sed 's/^.*storylink..//' | sed 's/^rel=.nofollow..//' | sed 's/\<\/a\>.*$//' | rpipe 2; sleep 60; done;"
+alias hn="while true; do date; sleep 5; curl -s https://news.ycombinator.com | grep 'class="storylink"' | sed 's/^.*storylink..//' | sed 's/^rel=.nofollow..//' | sed 's/\<\/a\>.*$//'; sleep 360; done;"
 
 alias ga.='git add .;git status'
 alias ga='git add'
@@ -42,7 +50,7 @@ alias gs='git status'
 alias gd='git diff'
 alias gco='git checkout'
 alias gp='git pull'
-alias gpu='git push'
+alias gpu='git push origin HEAD'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
 alias gb='git for-each-ref --sort=-committerdate refs/heads/'
 alias real='cd ~/uni/realtime/uebung/ue1/rtr-template'
@@ -61,6 +69,7 @@ alias n2p="ssh nginx4.production"
 alias n1s="ssh nginx1.doc"
 alias f1p="ssh fedex1.production"
 alias f2p="ssh fedex2.production"
+alias f3p="ssh fedex3.production"
 alias f1s="ssh fedex1.doc"
 alias f2s="ssh fedex2.doc"
 alias m1p="ssh mongo1.production"
@@ -69,6 +78,10 @@ alias m3p="ssh monitor.production"
 alias m1s="ssh mongo1.doc"
 alias m2s="ssh mongo2.doc"
 alias m3s="ssh monitor.doc"
+
+alias f1error="ssh fedex1.production 'tail -f /var/log/fedex.err.log'"
+alias f2error="ssh fedex2.production 'tail -f /var/log/fedex.err.log'"
+alias pancholog="ssh -t cms 'sudo tail -f /var/log/upstart/pancho.log'"
 
 test -f ~/.git-completion.bash && . $_
 ulimit -n 4096

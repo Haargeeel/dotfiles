@@ -9,6 +9,16 @@ autocmd VimEnter * highlight LineNr ctermfg=grey
 " autocmd VimEnter * colorscheme beans
 " autocmd VimEnter * colorscheme github
 
+" Remove trailing whitespace while keeping cursor position
+fun! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+" autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
 " colorscheme
 set guifont=Menlo:h12
 "colorscheme solarized
@@ -37,14 +47,14 @@ set ic
 let g:NERDSpaceDelims = 1
 
 " syntastic stuff
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 0
 " let g:syntastic_javascript_checkers = ['standard']
 
 " jsx (react) stuff
@@ -75,11 +85,21 @@ cnoremap sudow w !sudo tee % >/dev/null
 " use jj instead of ESC
 imap jj <esc>
 
+" jump on the tab on the left
+" nmap <left> :tabprevious<RETURN>
 " jump on the pane on the left
 nmap <left> <C-w>W
 
+" jump to the tab on the right
+" nmap <right> :tabnext<RETURN>
 " jump to the pane on the right
 nmap <right> <C-w>w
+
+" jump on the tab on the left
+nmap <c-h> :tabprevious<RETURN>
+
+" jump to the tab on the right
+nmap <c-l> :tabnext<RETURN>
 
 " scroll 5 lines up
 nmap <up> 5<C-y>
@@ -127,8 +147,11 @@ inoremap <S-Tab> <C-V><Tab>
 vnoremap < <gv
 vnoremap > >gv
 
+" find and jump
+nmap <leader>f <leader><leader>s
+
 " react automatically add bind on class functions
-nmap <leader>bind 0wvey/super(props)<RETURN>othis.<ESC>pa = this.<ESC>pa.bind(this)<ESC>,/
+nmap <leader>bind 0wvey/super(<RETURN>othis.<ESC>pa = this.<ESC>pa.bind(this)<ESC>,/
 
 " save swap files in a special directory
 set backupdir=~/.vim/backup//
@@ -140,24 +163,24 @@ set undodir=~/.vim/undo//
 " Goyo gives the page a clean style goyo.vim
 " limelight highlights the paragraph your cursor is on limelight.vim
 " LaTeX-Box does the heavy shit
-nmap <leader>master <ESC>:Goyo<RETURN>:Limelight<RETURN>:colorscheme solarized<RETURN>:Latexmk<RETURN>
-let g:LatexBox_split_type="new"
-let g:LatexBox_latexmk_async=1
-let g:LatexBox_latexmk_preview_continuously=1
-let g:LatexBox_viewer = "open -a Skim"
-let g:LatexBox_latexmk_options = "-pvc"
-let g:LatexBox_quickfix=0
-imap <leader>e \emph{}<ESC>i
-imap <leader>t {\ttfamily }<ESC>i
-nmap <leader>m <ESC>:LatexTOCToggle<RETURN>
-imap <leader>m <ESC>:LatexTOCToggle<RETURN>
-nmap <leader>ag :Goyo<RETURN>
-nmap <leader>al :Limelight<RETURN>
-nmap <leader>as :colorscheme solarized<RETURN>
-nmap <leader>am :Latexmk<RETURN>
-let g:syntastic_ignore_files=['\.tex$']
-let g:tq_enabled_backends=["woxikon_de"]
-let g:tq_language=['de']
+" nmap <leader>master <ESC>:Goyo<RETURN>:Limelight<RETURN>:colorscheme solarized<RETURN>:Latexmk<RETURN>
+" let g:LatexBox_split_type="new"
+" let g:LatexBox_latexmk_async=1
+" let g:LatexBox_latexmk_preview_continuously=1
+" let g:LatexBox_viewer = "open -a Skim"
+" let g:LatexBox_latexmk_options = "-pvc"
+" let g:LatexBox_quickfix=0
+" imap <leader>e \emph{}<ESC>i
+" imap <leader>t {\ttfamily }<ESC>i
+" nmap <leader>m <ESC>:LatexTOCToggle<RETURN>
+" imap <leader>m <ESC>:LatexTOCToggle<RETURN>
+" nmap <leader>ag :Goyo<RETURN>
+" nmap <leader>al :Limelight<RETURN>
+" nmap <leader>as :colorscheme solarized<RETURN>
+" nmap <leader>am :Latexmk<RETURN>
+" let g:syntastic_ignore_files=['\.tex$']
+" let g:tq_enabled_backends=["woxikon_de"]
+" let g:tq_language=['de']
 
 " setup pathogen to manage your plugins
 call pathogen#infect()
