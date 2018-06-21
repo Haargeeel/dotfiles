@@ -3,6 +3,7 @@
 syntax enable
 filetype plugin indent on
 set number
+set encoding=UTF-8
 autocmd VimEnter * if !argc() | NERDTree | endif
 autocmd VimEnter * wincmd p
 autocmd VimEnter * highlight LineNr ctermfg=grey
@@ -153,11 +154,16 @@ nmap <leader>f <leader><leader>s
 " react automatically add bind on class functions
 nmap <leader>bind 0wvey/super(<RETURN>othis.<ESC>pa = this.<ESC>pa.bind(this)<ESC>,/
 
+" configure todo
+nmap <leader>todo :colorscheme darkBlue<RETURN>:setf markdown<RETURN>:Goyo<RETURN>
+
+" activate folding
+nmap <leader>z :set foldmethod=syntax<RETURN>
+
 " save swap files in a special directory
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
-
 
 " Latex stuff
 " Goyo gives the page a clean style goyo.vim
