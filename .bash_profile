@@ -127,3 +127,13 @@ _complete_ssh_hosts ()
   return 0
 }
 complete -F _complete_ssh_hosts ssh
+
+function parse_git_dirty {
+  [[ $(git status --porcelain 2> /dev/null | tail -n1) != "" ]] && echo -e "\033[91m*\033[00m"
+}
+
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1)$(parse_git_dirty)/"
+}
+
+export PS1="\u \[\033[32m\]\W\[\033[34m\]\$(parse_git_branch)\[\033[00m\] $ "
