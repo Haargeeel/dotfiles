@@ -1,3 +1,14 @@
+
+# Git branch bash completion
+# Soure for the function: https://gist.github.com/JuggoPop/10706934
+# Source for the file: https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+
+  # Add git completion to aliases
+  __git_complete gco _git_checkout
+fi
+
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder'
 alias la='ls -a'
@@ -130,6 +141,7 @@ complete -F _complete_ssh_hosts ssh
 
 function parse_git_dirty {
   [[ $(git status --porcelain 2> /dev/null | tail -n1) != "" ]] && echo -e "\033[91m*\033[00m"
+  # [[ -z $(git status --porcelain) ]] || echo "*"
 }
 
 parse_git_branch() {
