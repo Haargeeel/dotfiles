@@ -1,4 +1,3 @@
-
 # Git branch bash completion
 # Soure for the function: https://gist.github.com/JuggoPop/10706934
 # Source for the file: https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
@@ -9,6 +8,37 @@ if [ -f ~/.git-completion.bash ]; then
   __git_complete gco _git_checkout
 fi
 
+_complete_ssh_hosts ()
+{
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  comp_ssh_hosts=`cat ~/.ssh/known_hosts | \
+    cut -f 1 -d ' ' | \
+    sed -e s/,.*//g | \
+    grep -v ^# | \
+    uniq | \
+    grep -v "\[" ;
+  cat ~/.ssh/config | \
+    grep "^Host " | \
+    awk '{print $2}'
+  `
+  COMPREPLY=( $(compgen -W "${comp_ssh_hosts}" -- $cur))
+  return 0
+}
+complete -F _complete_ssh_hosts ssh
+
+function parse_git_dirty {
+  [[ $(git status --porcelain 2> /dev/null | tail -n1) != "" ]] && echo -e "\033[91m*\033[00m"
+  # [[ -z $(git status --porcelain) ]] || echo "*"
+}
+
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1)$(parse_git_dirty)/"
+}
+
+export PS1="\u \[\033[32m\]\W\[\033[34m\]\$(parse_git_branch)\[\033[00m\] $ "
+
+# Aliases (duh!)
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder'
 alias la='ls -a'
@@ -94,21 +124,11 @@ alias f1error="ssh fedex1.production 'tail -f /var/log/fedex.err.log'"
 alias f2error="ssh fedex2.production 'tail -f /var/log/fedex.err.log'"
 alias pancholog="ssh -t cms 'sudo tail -f /var/log/upstart/pancho.log'"
 
-test -f ~/.git-completion.bash && . $_
 ulimit -n 4096
 
-##
-# Your previous /Users/ray/.bash_profile file was backed up as /Users/ray/.bash_profile.macports-saved_2015-10-28_at_13:16:01
-##
-
-# MacPorts Installer addition on 2015-10-28_at_13:16:01: adding an appropriate PATH variable for use with MacPorts.
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-export EDITOR="/usr/bin/vim"
-cowsay 'Jo Ray'
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f /Users/ray/Documents/Development/gcloud/google-cloud-sdk/path.bash.inc ]; then
@@ -120,32 +140,5 @@ if [ -f /Users/ray/Documents/Development/gcloud/google-cloud-sdk/completion.bash
   source '/Users/ray/Documents/Development/gcloud/google-cloud-sdk/completion.bash.inc'
 fi
 
-_complete_ssh_hosts ()
-{
-  COMPREPLY=()
-  cur="${COMP_WORDS[COMP_CWORD]}"
-  comp_ssh_hosts=`cat ~/.ssh/known_hosts | \
-    cut -f 1 -d ' ' | \
-    sed -e s/,.*//g | \
-    grep -v ^# | \
-    uniq | \
-    grep -v "\[" ;
-  cat ~/.ssh/config | \
-    grep "^Host " | \
-    awk '{print $2}'
-  `
-  COMPREPLY=( $(compgen -W "${comp_ssh_hosts}" -- $cur))
-  return 0
-}
-complete -F _complete_ssh_hosts ssh
-
-function parse_git_dirty {
-  [[ $(git status --porcelain 2> /dev/null | tail -n1) != "" ]] && echo -e "\033[91m*\033[00m"
-  # [[ -z $(git status --porcelain) ]] || echo "*"
-}
-
-parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1)$(parse_git_dirty)/"
-}
-
-export PS1="\u \[\033[32m\]\W\[\033[34m\]\$(parse_git_branch)\[\033[00m\] $ "
+export EDITOR="/usr/bin/vim"
+cowsay 'Jo Ray'
