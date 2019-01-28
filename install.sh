@@ -121,4 +121,34 @@ if [ ! -d ${DIR}"syntastic/" ]; then
   git clone --depth=1 https://github.com/scrooloose/syntastic.git
 fi
 
+if [ ! -d ${DIR}"vim-easymotion/" ]; then
+  echo "install easymotion"
+  git clone git@github.com:easymotion/vim-easymotion.git
+fi
+
+if [ ! -d ${DIR}"nginx.vim/" ]; then
+  echo "install nginx.vim"
+  git clone git@github.com:chr4/nginx.vim.git
+fi
+
+if [ ! -d ${DIR}"vim-javascript/" ]; then
+  echo "install vim-javascript"
+  git clone git@github.com:pangloss/vim-javascript.git
+fi
+
+if [ ! -d ${DIR}"goyo.vim" ]; then
+  echo "install goyo-vim"
+  git clone git@github.com:junegunn/goyo.vim.git
+fi
+
+if [ ! -d ${DIR}"vim-jsx" ]; then
+  echo "install vim-jsx"
+  git clone git@github.com:mxw/vim-jsx.git
+fi
+
+if [ ! -d ${DIR}"vim-surround" ]; then
+  echo "install vim-surround"
+  git clone git@github.com:tpope/vim-surround.git
+fi
+
 echo -e "${green}all done${NC}"

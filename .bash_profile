@@ -46,6 +46,7 @@ alias ll='ls -lh'
 alias ls='ls -GFh'
 alias l='ls'
 alias ..='cd ..'
+alias cd..='cd ..'
 alias v='vim'
 alias ip='curl ipv4.icanhazip.com'
 alias ipp='ifconfig | grep ".*inet.*netmask.*broadcast"'
@@ -53,7 +54,7 @@ alias send='~/Documents/Development/fun_scripts/send.sh'
 alias rep='cd ~/Documents/Development/report_architecture/reports'
 alias dv='cd ~/Documents/Development/docker_versus'
 # alias myfind='find . -type f -not -path "./node_modules/*" -not -path "./build/*" | xargs grep'
-alias myfind='fd --type f | xargs grep'
+alias myfind='fd --type f | xargs rg'
 alias weather='curl -4 http://wttr.in/Berlin'
 alias mkd='mkdir $1; cd $1'
 
@@ -111,14 +112,14 @@ alias n1s="ssh nginx1.doc"
 alias f1p="ssh fedex1.production"
 alias f2p="ssh fedex2.production"
 alias f3p="ssh fedex3.production"
-alias f1s="ssh fedex1.doc"
-alias f2s="ssh fedex2.doc"
+alias f1s="ssh f1s"
+alias f2s="ssh f2s"
 alias m1p="ssh mongo1.production"
 alias m2p="ssh mongo2.production"
 alias m3p="ssh monitor.production"
-alias m1s="ssh mongo1.doc"
-alias m2s="ssh mongo2.doc"
-alias m3s="ssh monitor.doc"
+alias m1s="ssh m1s"
+alias m2s="ssh m2s"
+alias m3s="ssh m3s"
 
 alias f1error="ssh fedex1.production 'tail -f /var/log/fedex.err.log'"
 alias f2error="ssh fedex2.production 'tail -f /var/log/fedex.err.log'"
@@ -139,6 +140,15 @@ fi
 if [ -f /Users/ray/Documents/Development/gcloud/google-cloud-sdk/completion.bash.inc ]; then
   source '/Users/ray/Documents/Development/gcloud/google-cloud-sdk/completion.bash.inc'
 fi
+
+# Please fix mongo
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_TYPE=en_US.UTF-8
+
+# No dups in a row anymore :tada:
+HISTCONTROL=ignoreboth
 
 export EDITOR="/usr/bin/vim"
 cowsay 'Jo Ray'

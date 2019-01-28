@@ -63,6 +63,7 @@ let g:jsx_ext_required = 0
 
 " set up control p
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|build'
 
 " Make PowerLine appear if not split window
@@ -123,17 +124,23 @@ nmap <leader>g :e#<RETURN>
 " open same file again in a second pane
 nmap <leader>vs :vsplit<RETURN>
 
+" open same file again in a second pane
+nmap <leader>hs :split<RETURN>
+
 " yank whole file
 nmap <leader>y :%y<RETURN>
 
 " shortcut for console.log()
 imap <leader>c console.log()<ESC>i
 
+" shortcut for util-inspect
+vmap <leader>in ysrequire('util').inspect(<ESC>pea, { depth: null })<ESC>
+
 " copy selected text into clipboard
 vmap <leader>p :w !pbcopy<RETURN><RETURN>
 
 " clear search highlighting
-nmap <leader>/ :noh<RETURN>
+nmap <silent> <leader>/ :noh<RETURN>
 
 " reverse shift j for comma seperated stuff
 nmap <S-k> f,a<RETURN><ESC>
@@ -155,10 +162,16 @@ nmap <leader>f <leader><leader>s
 nmap <leader>bind 0wvey/super(<RETURN>othis.<ESC>pa = this.<ESC>pa.bind(this)<ESC>,/
 
 " configure todo
-nmap <leader>todo :colorscheme darkBlue<RETURN>:setf markdown<RETURN>:Goyo<RETURN>
+nmap <leader>todo :setf markdown<RETURN>:Goyo<RETURN>
 
 " activate folding
 nmap <leader>z :set foldmethod=syntax<RETURN>
+
+" transform a React functional component to a Component class
+nmap <leader>cast /import React<RETURN>wea, { Component }<ESC>/export default<RETURN>vf(sconst <ESC>f)C = this.props<ESC>Oclass <C-R>%<ESC>vbhs extends Component {<RETURN>render () {<ESC>/this.props<RETURN>oreturn<ESC>JGo}<RETURN>}<RETURN><ESC>Goexport default <C-R>%<ESC>vbhxggVG=
+
+" sort selected words alphabetically
+vmap <leader>s :!xargs -n1 \| sort \| xargs<RETURN>
 
 " save swap files in a special directory
 set backupdir=~/.vim/backup//
