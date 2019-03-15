@@ -96,6 +96,7 @@ alias gpu='git push origin HEAD'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
 alias gb='git for-each-ref --sort=-committerdate refs/heads/'
 alias real='cd ~/uni/realtime/uebung/ue1/rtr-template'
+alias gdelete='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 
 alias drmi="~/Documents/Development/fun_scripts/docker_remove_stuff.sh rmi"
 alias drmc="~/Documents/Development/fun_scripts/docker_remove_stuff.sh rmc"
@@ -108,7 +109,7 @@ alias bashprofile="vim ~/.bash_profile"
 # versus aliases
 alias n1p="ssh nginx3.production"
 alias n2p="ssh nginx4.production"
-alias n1s="ssh nginx1.doc"
+alias n1s="ssh n1s"
 alias f1p="ssh fedex1.production"
 alias f2p="ssh fedex2.production"
 alias f3p="ssh fedex3.production"

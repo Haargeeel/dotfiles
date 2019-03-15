@@ -151,4 +151,9 @@ if [ ! -d ${DIR}"vim-surround" ]; then
   git clone git@github.com:tpope/vim-surround.git
 fi
 
+if [ ! -d ${DIR}"vim-indent-guides" ]; then
+  echo "install vim-indent-guides"
+  git clone git://github.com/nathanaelkane/vim-indent-guides.git
+fi
+
 echo -e "${green}all done${NC}"
