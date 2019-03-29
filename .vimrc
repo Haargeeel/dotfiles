@@ -147,6 +147,9 @@ vmap <leader>in ysrequire('util').inspect(<ESC>pea, { depth: null })<ESC>
 " copy selected text into clipboard
 vmap <leader>p :w !pbcopy<RETURN><RETURN>
 
+" copy previous selected text again to the default register
+nmap <leader>p pgvy
+
 " clear search highlighting
 nmap <silent> <leader>/ :noh<RETURN>
 
