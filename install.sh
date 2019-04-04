@@ -116,6 +116,17 @@ if [ ! -d ${DIR}"vim-snipmate/" ]; then
   git clone https://github.com/garbas/vim-snipmate.git
 fi
 
+echo "check if snippets is a link"
+if [ -L "$HOME/.vim/bundle/vim-snippets/snippets" ];then
+  echo -e "${green}already a link. Nothing to do here.${NC}"
+else
+  echo -e "${blue}not a link. Deleting folder and creating link.${NC}"
+  if [ -d "$HOME/.vim/bundle/vim-snippets/snippets" ];then
+    rm -r $HOME/.vim/bundle/vim-snippets/snippets
+  fi
+  ln -s $CP/snippets $HOME/.vim/bundle/vim-snippets/snippets
+fi
+
 if [ ! -d ${DIR}"syntastic/" ]; then
   echo "install syntastic"
   git clone --depth=1 https://github.com/scrooloose/syntastic.git

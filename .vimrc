@@ -21,8 +21,17 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " colorscheme
-set guifont=Menlo:h12
-colorscheme default
+if has("gui_running")
+  let g:solarized_contrast = 'high'
+  set guifont=Mensch:h14
+  " set guifont=Menlo:h12
+  set antialias
+  set background=light
+  colorscheme solarized
+else
+  set guifont=Menlo:h12
+  colorscheme default
+endif
 
 " tabs
 set tabstop=2
@@ -81,8 +90,8 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=233
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=234
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=lightgray ctermbg=233
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgray  ctermbg=234
 
 " ***************************
 " **********mapping**********

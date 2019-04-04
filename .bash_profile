@@ -50,28 +50,16 @@ alias cd..='cd ..'
 alias v='vim'
 alias ip='curl ipv4.icanhazip.com'
 alias ipp='ifconfig | grep ".*inet.*netmask.*broadcast"'
-alias send='~/Documents/Development/fun_scripts/send.sh'
-alias rep='cd ~/Documents/Development/report_architecture/reports'
-alias dv='cd ~/Documents/Development/docker_versus'
 # alias myfind='find . -type f -not -path "./node_modules/*" -not -path "./build/*" | xargs grep'
 alias myfind='fd --type f | xargs rg'
 alias weather='curl -4 http://wttr.in/Berlin'
 alias mkd='mkdir $1; cd $1'
 
-alias hv='cd ~/Documents/Development/hv3'
-alias now='cd ~/Documents/Development/Now'
-alias versus='cd ~/Documents/Development/versus/versus-android'
-alias server='ssh ray@134.255.239.58'
 alias dev='cd ~/Documents/Development'
 alias fed='cd ~/Documents/Development/fedex-node'
 alias cms='cd ~/Documents/Development/cms'
 alias goversus='~/Documents/Development/start-script'
 alias endversus='~/Documents/Development/stop-script'
-alias master='cd /Users/ray/Documents/Development/masterarbeit/cloudarchitecture'
-#alias mvim='open -a macvim'
-alias mac-wlan='ssh ray@wlan'
-alias mac='ssh ray@lan'
-alias funarea='cd /Users/ray/Documents/Development/fun_scripts'
 alias timer='/Users/ray/Documents/Development/fun_scripts/kill.sh'
 
 export PATH=/usr/local/sbin:$PATH
@@ -88,6 +76,7 @@ alias ga.='git add .;git status'
 alias ga='git add'
 alias gc='git commit'
 alias gcm='git commit -m '
+alias gca='git commit --amend --no-edit'
 alias gs='git status'
 alias gd='git diff'
 alias gco='git checkout'
@@ -95,12 +84,8 @@ alias gp='git pull'
 alias gpu='git push origin HEAD'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
 alias gb='git for-each-ref --sort=-committerdate refs/heads/'
-alias real='cd ~/uni/realtime/uebung/ue1/rtr-template'
 alias gdelete='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 
-alias drmi="~/Documents/Development/fun_scripts/docker_remove_stuff.sh rmi"
-alias drmc="~/Documents/Development/fun_scripts/docker_remove_stuff.sh rmc"
-alias dsc="~/Documents/Development/fun_scripts/docker_remove_stuff.sh stopc"
 alias tmc="ssh -tt rasp 'bash tmuxcontrol.sh'"
 
 alias vimrc="vim ~/.vimrc"
@@ -123,7 +108,7 @@ alias m2s="ssh m2s"
 alias m3s="ssh m3s"
 
 alias f1error="ssh fedex1.production 'tail -f /var/log/fedex.err.log'"
-alias f2error="ssh fedex2.production 'tail -f /var/log/fedex.err.log'"
+alias f2error="ssh f2p 'tail -f /var/log/fedex.err.log'"
 alias pancholog="ssh -t cms 'sudo tail -f /var/log/upstart/pancho.log'"
 
 ulimit -n 4096
