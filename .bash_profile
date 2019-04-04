@@ -136,5 +136,7 @@ export LC_TYPE=en_US.UTF-8
 # No dups in a row anymore :tada:
 HISTCONTROL=ignoreboth
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
 export EDITOR="/usr/bin/vim"
 cowsay 'Jo Ray'
