@@ -82,9 +82,12 @@ alias gd='git diff'
 alias gco='git checkout'
 alias gp='git pull'
 alias gpu='git push origin HEAD'
+alias gpuf='git push -f origin'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
 alias gb='git for-each-ref --sort=-committerdate refs/heads/'
 alias gdelete='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+
+alias mwti='mongo wl_versusio'
 
 alias tmc="ssh -tt rasp 'bash tmuxcontrol.sh'"
 
@@ -95,20 +98,21 @@ alias bashprofile="vim ~/.bash_profile"
 alias n1p="ssh nginx3.production"
 alias n2p="ssh nginx4.production"
 alias n1s="ssh n1s"
-alias f1p="ssh fedex1.production"
+alias f1p="ssh f1p"
 alias f2p="ssh f2p"
-alias f3p="ssh fedex3.production"
+alias f3p="ssh f3p"
 alias f1s="ssh f1s"
 alias f2s="ssh f2s"
 alias m1p="ssh m1p"
 alias m2p="ssh m2p"
-alias m3p="ssh monitor.production"
+alias m3p="ssh m3p"
 alias m1s="ssh m1s"
 alias m2s="ssh m2s"
 alias m3s="ssh m3s"
 
-alias f1error="ssh fedex1.production 'tail -f /var/log/fedex.err.log'"
+alias f1error="ssh f1p 'tail -f /var/log/fedex.err.log'"
 alias f2error="ssh f2p 'tail -f /var/log/fedex.err.log'"
+alias f3error="ssh f3p 'tail -f /var/log/fedex.err.log'"
 alias pancholog="ssh -t cms 'sudo tail -f /var/log/upstart/pancho.log'"
 
 ulimit -n 4096
@@ -135,6 +139,9 @@ export LC_TYPE=en_US.UTF-8
 
 # No dups in a row anymore :tada:
 HISTCONTROL=ignoreboth
+# Bigger bash history
+HISTSIZE=10000
+HISTFILESIZE=10000
 
 export PATH="$HOME/.cargo/bin:$PATH"
 

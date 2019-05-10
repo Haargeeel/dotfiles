@@ -1,1 +1,6 @@
 set completion-ignore-case On
+
+Control-p: history-search-backward
+Control-n: history-search-forward
+Control-j: menu-complete
+Control-o: menu-complete-backward
