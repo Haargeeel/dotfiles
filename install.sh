@@ -167,4 +167,9 @@ if [ ! -d ${DIR}"vim-indent-guides" ]; then
   git clone git://github.com/nathanaelkane/vim-indent-guides.git
 fi
 
+if [ ! -d ${DIR}"tabular" ]; then
+  echo "install tabular"
+  git clone git://github.com/godlygeek/tabular.git
+fi
+
 echo -e "${green}all done${NC}"
