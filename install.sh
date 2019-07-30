@@ -40,6 +40,17 @@ else
   ln -s $CP/.inputrc $HOME/.inputrc
 fi
 
+echo "check if .git-completion.bash is a link"
+if [ -L "$HOME/.git-completion.bash" ];then
+  echo -e "${green}already a link. Nothing to do here.${NC}"
+else
+  echo -e "${blue}not a link. Deleting file and creating link.${NC}"
+  if [ -f "$HOME/.git-completion.bash" ];then
+    rm $HOME/.git-completion.bash
+  fi
+  ln -s $CP/.git-completion.bash $HOME/.git-completion.bash
+fi
+
 echo -e "${green}done with all the link${NC}"
 echo "check the vim bundles now"
 
