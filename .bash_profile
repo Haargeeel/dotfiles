@@ -51,7 +51,7 @@ alias v='vim'
 alias ip='curl ipv4.icanhazip.com'
 alias ipp='ifconfig | grep ".*inet.*netmask.*broadcast"'
 # alias myfind='find . -type f -not -path "./node_modules/*" -not -path "./build/*" | xargs grep'
-alias myfind='fd --type f | xargs rg'
+alias myfind='fd --type f --exclude "prebid.js" --exclude "build/" --exclude "test/whitelabels.json" | xargs rg'
 alias weather='curl -4 http://wttr.in/Berlin'
 alias mkd='mkdir $1; cd $1'
 
