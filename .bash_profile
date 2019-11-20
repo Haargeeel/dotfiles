@@ -69,8 +69,8 @@ alias rayfit="cd /Users/ray/Documents/Development/go/src/github.com/haargeeel/ra
 #export LSCOLORS=ExFxBxDxCxegedabagacad
 
 alias gopath="cd $GOPATH"
-alias hnpi="while true; do echo \"====\" | rpipe 2; sleep 5; curl -s https://news.ycombinator.com | grep \"class='storylink'\" | sed 's/^.*storylink..//' | sed 's/^rel=.nofollow..//' | sed 's/\<\/a\>.*$//' | rpipe 2; sleep 60; done;"
-alias hn="while true; do date; sleep 5; curl -s https://news.ycombinator.com | grep 'class="storylink"' | sed 's/^.*storylink..//' | sed 's/^rel=.nofollow..//' | sed 's/\<\/a\>.*$//'; sleep 360; done;"
+alias hnpi="while true; do date | rpipe 2; sleep 5; curl -s https://news.ycombinator.com | grep 'class=\"storylink\"' | sed 's/^.*storylink..//' | sed 's/^rel=.nofollow..//' | sed 's/\<\/a\>.*$//' | rpipe 2; sleep 360; done;"
+alias hn="while true; do date | rpipe 2; sleep 5; curl -s https://news.ycombinator.com | grep 'class=\"storylink\"' | sed 's/^.*storylink..//' | sed 's/^rel=.nofollow..//' | sed 's/\<\/a\>.*$//'; sleep 360; done;"
 
 alias ga.='git add .;git status'
 alias ga='git add'
@@ -95,8 +95,8 @@ alias vimrc="vim ~/.vimrc"
 alias bashprofile="vim ~/.bash_profile"
 
 # versus aliases
-alias n1p="ssh nginx3.production"
-alias n2p="ssh nginx4.production"
+alias n1p="ssh n1p"
+alias n2p="ssh n2p"
 alias n1s="ssh n1s"
 alias f1p="ssh f1p"
 alias f2p="ssh f2p"
@@ -113,7 +113,7 @@ alias m3s="ssh m3s"
 alias f1error="ssh f1p 'tail -f /var/log/fedex.err.log'"
 alias f2error="ssh f2p 'tail -f /var/log/fedex.err.log'"
 alias f3error="ssh f3p 'tail -f /var/log/fedex.err.log'"
-alias pancholog="ssh -t cms 'sudo tail -f /var/log/upstart/pancho.log'"
+alias pancholog="ssh -t lithium 'tail -f /var/log/pancho.log'"
 
 ulimit -n 4096
 
