@@ -51,6 +51,17 @@ else
   ln -s $CP/.git-completion.bash $HOME/.git-completion.bash
 fi
 
+echo "check if iterm profile is a link"
+if [ -L "$HOME/Library/Application\ Support/iTerm2/DynamicProfiles/iterm_profile.json" ];then
+  echo -e "${green}already a link. Nothing to do here.${NC}"
+else
+  echo -e "${blue}not a link. Deleting file and creating link.${NC}"
+  if [ -f "$HOME/Library/Application\ Support/iTerm2/DynamicProfiles/iterm_profile.json" ];then
+    rm $HOME/Library/Application\ Support/iTerm2/DynamicProfiles/iterm_profile.json
+  fi
+  ln -s $CP/iterm_profile.json $HOME/Library/Application\ Support/iTerm2/DynamicProfiles/iterm_profile.json
+fi
+
 echo -e "${green}done with all the link${NC}"
 echo "check the vim bundles now"
 

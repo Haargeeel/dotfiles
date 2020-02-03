@@ -117,7 +117,7 @@ alias pancholog="ssh -t lithium 'tail -f /var/log/pancho.log'"
 
 ulimit -n 4096
 
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+export PATH="~/.yarn/bin:/opt/local/bin:/opt/local/sbin:$PATH"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 

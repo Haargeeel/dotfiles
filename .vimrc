@@ -175,6 +175,9 @@ inoremap <S-Tab> <C-V><Tab>
 vnoremap < <gv
 vnoremap > >gv
 
+" Reselect pasted text
+nnoremap gp `[v`]
+
 " find and jump
 nmap <leader>f <leader><leader>s
 
@@ -192,6 +195,9 @@ nmap <leader>cast /import React<RETURN>wea, { Component }<ESC>/export default<RE
 
 " sort selected words alphabetically
 vmap <leader>s :!xargs -n1 \| sort \| xargs<RETURN>
+
+" count occurrences of the last search
+nmap <leader>wc :%s///gn<RETURN>
 
 " save swap files in a special directory
 set backupdir=~/.vim/backup//
