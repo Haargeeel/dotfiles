@@ -22,12 +22,10 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " colorscheme
 if has("gui_running")
-  let g:solarized_contrast = 'high'
   set guifont=Mensch:h14
-  " set guifont=Menlo:h12
   set antialias
-  set background=light
   colorscheme solarized
+  set background=light
 else
   set guifont=Menlo:h12
   colorscheme default
