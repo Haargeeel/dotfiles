@@ -451,7 +451,7 @@
       "Cursor Type" : 2,
       "AWDS Pane Directory" : "",
       "Blur" : true,
-      "Normal Font" : "Menlo-Regular 10",
+      "Normal Font" : "Menlo-Regular 12",
       "Vertical Spacing" : 0.92000000000000004,
       "Disable Printing" : false,
       "Ansi 7 Color" : {
@@ -495,7 +495,7 @@
       },
       "Screen" : -1,
       "AWDS Window Option" : "No",
-      "Non Ascii Font" : "Monaco 11",
+      "Non Ascii Font" : "Monaco 12",
       "Ansi 13 Color" : {
         "Red Component" : 0.98945695161819458,
         "Color Space" : "sRGB",

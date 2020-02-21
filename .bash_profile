@@ -137,6 +137,9 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LC_TYPE=en_US.UTF-8
 
+# Surpress default shell warning on MacOS
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # No dups in a row anymore :tada:
 HISTCONTROL=ignoreboth
 # Bigger bash history
