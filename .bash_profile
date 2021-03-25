@@ -27,16 +27,17 @@ _complete_ssh_hosts ()
 }
 complete -F _complete_ssh_hosts ssh
 
-function parse_git_dirty {
-  [[ $(git status --porcelain 2> /dev/null | tail -n1) != "" ]] && echo -e "\033[91m*\033[00m"
-  # [[ -z $(git status --porcelain) ]] || echo "*"
-}
+# function parse_git_dirty {
+  # [[ $(git status --porcelain 2> /dev/null | tail -n1) != "" ]] && echo -e "\033[91m*\033[00m"
+  # # [[ -z $(git status --porcelain) ]] || echo "*"
+# }
 
-parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1)$(parse_git_dirty)/"
-}
+# parse_git_branch() {
+  # git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1)$(parse_git_dirty)/"
+# }
 
 export PS1="\u \[\033[32m\]\W\[\033[34m\]\$(parse_git_branch)\[\033[00m\] $ "
+export PS1="\W $ "
 
 # Aliases (duh!)
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder'
@@ -94,6 +95,15 @@ alias tmc="ssh -tt rasp 'bash tmuxcontrol.sh'"
 alias vimrc="vim ~/.vimrc"
 alias bashprofile="vim ~/.bash_profile"
 
+# versus dev aliases
+alias ycd="yarn comparison-dev"
+alias ypd="yarn property-dev"
+alias ytd="yarn toplist-dev"
+alias yd="yarn dev"
+alias yb="yarn build"
+
+alias ncms="PORT=3001 nodemon"
+
 # versus aliases
 alias n1p="ssh n1p"
 alias n2p="ssh n2p"
@@ -101,6 +111,7 @@ alias n1s="ssh n1s"
 alias f1p="ssh f1p"
 alias f2p="ssh f2p"
 alias f3p="ssh f3p"
+alias f4p="ssh f4p"
 alias f1s="ssh f1s"
 alias f2s="ssh f2s"
 alias m1p="ssh m1p"
@@ -113,11 +124,9 @@ alias m3s="ssh m3s"
 alias f1error="ssh f1p 'tail -f /var/log/fedex.err.log'"
 alias f2error="ssh f2p 'tail -f /var/log/fedex.err.log'"
 alias f3error="ssh f3p 'tail -f /var/log/fedex.err.log'"
-alias pancholog="ssh -t lithium 'tail -f /var/log/pancho.log'"
+alias pancholog="ssh -t lithium 'tail -fn 100 /var/log/pancho.log'"
 
 ulimit -n 4096
-
-export PATH="~/.yarn/bin:/opt/local/bin:/opt/local/sbin:$PATH"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
@@ -149,4 +158,6 @@ HISTFILESIZE=10000
 export PATH="$HOME/.cargo/bin:$PATH"
 
 export EDITOR="/usr/bin/vim"
-cowsay 'Jo Ray'
+# cowsay 'Jo Ray'
+# export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"
+export PATH="/Users/ray/.deno/bin:$PATH"
